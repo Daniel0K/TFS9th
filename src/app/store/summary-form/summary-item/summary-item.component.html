@@ -1,1 +1,22 @@
-<p>summary-item works!</p>
+<div class="container">
+  {{basketGood.title}}
+  <div [formGroup]="form" class="right-side">
+    <tui-badge
+      class="support-1"
+      status="success"
+      [value]="formattedPrice"
+      [hoverable]="true"
+    ></tui-badge>
+    <tui-input-count
+      formControlName="qtyField"
+      [hideButtons]="true"
+      [min]="0"
+      [max]="100"
+    >
+      {{basketGood.qty}}
+    </tui-input-count>
+
+    <span class="close" (click)="this.basketService.delGoodToBasket(this.basketGood)" >X</span>
+  </div>
+</div>
+

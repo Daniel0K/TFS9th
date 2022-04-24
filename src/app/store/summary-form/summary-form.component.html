@@ -1,1 +1,13 @@
-<p>summary-form works!</p>
+<div class="container">
+  <div class="header">
+    Корзина
+  </div>
+  <app-summary-item *ngFor="let basketGood of basketService.goodsBasket"
+                    [basketGood]="basketGood"
+                    (input)="itemQtyChanged($event,basketGood)"
+  ></app-summary-item>
+  <div class="footer">
+    <span class="caption">Итого:&nbsp;</span>
+    <strong>{{ this.basketService.summary }}{{this.basketService.exchangeSymbol}}</strong>
+  </div>
+</div>

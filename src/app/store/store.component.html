@@ -1,1 +1,7 @@
-<p>store works!</p>
+<button class="button" *ngIf="isGoodsVisible"
+        (click)="basketToggle()">К списку товаров</button>
+<app-summary-form *ngIf="isGoodsVisible"></app-summary-form>
+<app-delivery-form *ngIf="isGoodsVisible"></app-delivery-form>
+<app-store-products *ngIf="!isGoodsVisible"
+                    (changeScene)="basketToggle()"
+></app-store-products>

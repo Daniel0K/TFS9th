@@ -1,1 +1,6 @@
-<p>store-products works!</p>
+<div class="store-items-container">
+  <app-store-item *ngFor="let good of goodsService.goods"
+                  [good]="good"
+                  (changeSceneItem)="changeSceneComponent()"
+  ></app-store-item>
+</div>

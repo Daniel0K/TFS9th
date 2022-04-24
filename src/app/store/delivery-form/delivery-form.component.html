@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="header">
+    Форма заказа
+  </div>
+  <form [formGroup]="form">
+    <div class="tui-form__row">
+      <tui-combo-box
+        class="b-form"
+        tuiTextfieldSize="s"
+        formControlName="countryControl"
+        [stringify]="stringify"
+        (ngModelChange)="getExchange($event)"
+      >
+        Страна
+        <input
+          tuiTextfield
+          tuiTextfieldSize="s"
+          placeholder="Type a name"
+        />
+        <tui-data-list-wrapper
+          *tuiDataList
+          [items]="currenciesService.currencies | tuiFilterByInputWith : stringify"
+          [itemContent]="stringify | tuiStringifyContent"
+        ></tui-data-list-wrapper>
+      </tui-combo-box>
+    </div>
+    <div class="tui-form__row">
+      <tui-input tuiTextfieldSize="s" formControlName="addressControl">
+        Адрес
+      </tui-input>
+      <tui-error formControlName="addressControl" [error]="[] | tuiFieldError | async">
+      </tui-error>
+    </div>
+    <div class="tui-form__row">
+      <tui-input tuiTextfieldSize="s" formControlName="nameControl">
+        Имя
+      </tui-input>
+      <tui-error formControlName="nameControl" [error]="[] | tuiFieldError | async">
+      </tui-error>
+    </div>
+    <div class="tui-form__row">
+      <tui-input tuiTextfieldSize="s" formControlName="emailControl">
+        Email
+      </tui-input>
+      <tui-error formControlName="emailControl" [error]="[] | tuiFieldError | async">
+      </tui-error>
+    </div>
+  </form>
+</div>

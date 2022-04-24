@@ -1,1 +1,29 @@
-<p>store-item works!</p>
+<script src="../../../../shared/services/goods.service.ts"></script>
+<div class="container">
+  <div class="item">
+    <div class="front item_front">
+      <div class="item-content">
+          <div class="name center">{{good.title}}</div>
+          <div class="price-item">
+            <div class="name">
+              Цена:
+              <tui-badge
+                class="support-1"
+                status="success"
+                [value]="formattedPrice"
+                [hoverable]="true"
+              ></tui-badge>
+            </div>
+            <div [formGroup]="form" class="right-side">
+              <tui-input-count
+                formControlName="qtyField"
+                [min]="1"
+              >
+              </tui-input-count>
+          </div>
+        </div>
+          <button class="button" (click)="addToBasket()">В корзину</button>
+        </div>
+      </div>
+    </div>
+  </div>

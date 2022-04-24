@@ -1,0 +1,13 @@
+{
+  "/all": {
+    "target": "https://restcountries.com/v3.1",
+    "secure": false,
+    "changeOrigin": true
+  },
+
+  "/latest": {
+    "target": "http://api.exchangeratesapi.io/v1/",
+    "secure": false,
+    "changeOrigin": true
+  }
+}

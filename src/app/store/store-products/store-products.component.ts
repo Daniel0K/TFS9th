@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {GoodsService} from "../../../shared/services/goods.service";
 
 @Component({
   selector: 'app-store-products',
@@ -6,10 +7,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./store-products.component.less']
 })
 export class StoreProductsComponent implements OnInit {
+  @Output()
+  changeScene = new EventEmitter();
 
-  constructor() { }
+
+  constructor(public goodsService: GoodsService) { }
 
   ngOnInit(): void {
   }
 
+
+  changeSceneComponent() {
+    this.changeScene.emit();
+  }
 }
